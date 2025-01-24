@@ -18,6 +18,7 @@ class Password {
     let pass  = "";
     while (len < max) {
       let choose = Math.floor(Math.random() * 2);
+      choose = choose.parseInt(choose);
       if (choose == 0) {
         pass += this.lowercase[Math.floor(Math.random() * 25)];
       }
