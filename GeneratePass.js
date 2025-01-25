@@ -1,9 +1,9 @@
 class Password {
   constructor() {
-    this.lowercase = ["abcdefghijklmnopqrstuvwxyz"];
-    this.uppercase = ["ABCDEFGHIJKLMNOPQRSTUVWXY"];
-    this.numbers = "0123456789";
-    this.special = "~!@#$%^&*()_+-=?/*";
+    this.lowercase = "abcdefghijklmnopqrstuvwxyz".split('');
+    this.uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXY".split('');
+    this.numbers = "0123456789".split('');
+    this.special = "~!@#$%^&*()_+-=?/*".split('');
   }
 
   funnyPassword () {
@@ -13,21 +13,19 @@ class Password {
   }
 
   weakPassword () {
-    let len = 0;
-    let max = Math.floor(Math.random() * (5) + 8);
+    let array = [this.lowercase, this.uppercase];
+    let max = Math.floor(Math.random() * 5) + 8;
     let pass  = "";
-    while (len < max) {
-      let choose = Math.floor(Math.random() * 2);
-      choose = choose.parseInt(choose);
-      if (choose == 0) {
-        pass += this.lowercase[Math.floor(Math.random() * 25)];
-      }
-      else {
-        pass += this.uppercase[Math.floor(Math.random() * 25)];
-      }
-      len++;
+    const choose = Math.floor(Math.random() * 2);
+    while (pass.length < max) {
+      const char = array[choose][Math.floor(Math.random() * array[choose].length)];
+      pass += char;
     }
     return pass;
+  }
+
+  strongPassword () {
+    
   }
 }
 
