@@ -82,11 +82,14 @@ class Password {
   }
 }
 
-let choice;
-let newPass = new Password;
-// choice = prompt("Enter your choice (funny, weak, strong, super):");
-if (choice == "funny") console.log(newPass.funnyPassword());
-else if(choice == "weak") console.log(newPass.weakPassword());
-else if(choice == "strong") console.log(newPass.strongPassword());
-else if(choice == "super") console.log(newPass.superStrongPassword());
-else console.log("Invalid choice!!");
+generate = () => {
+  let choice = document.getElementById('input').innerHTML;
+  let newPass = new Password;
+  if (choice == "funny") {
+    document.getElementById('output').innerHTML = `${newPass.funnyPassword()}`;
+  }
+    else if(choice == "weak") console.log(newPass.weakPassword());
+  else if(choice == "strong") console.log(newPass.strongPassword());
+  else if(choice == "super") console.log(newPass.superStrongPassword());
+  else console.log("Invalid choice!!");
+}
