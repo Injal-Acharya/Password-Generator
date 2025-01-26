@@ -82,14 +82,20 @@ class Password {
   }
 }
 
-generate = () => {
-  let choice = document.getElementById('input').innerHTML;
+const generate = () => {
+  const choice = document.getElementById('input').value;
   let newPass = new Password;
   if (choice == "funny") {
-    document.getElementById('output').innerHTML = `${newPass.funnyPassword()}`;
+    document.getElementById('output').value = `${newPass.funnyPassword()}`;
   }
-    else if(choice == "weak") console.log(newPass.weakPassword());
-  else if(choice == "strong") console.log(newPass.strongPassword());
-  else if(choice == "super") console.log(newPass.superStrongPassword());
+    else if(choice == "weak") {
+      document.getElementById('output').value = `${newPass.weakPassword()}`;
+    }
+  else if(choice == "strong") {
+    document.getElementById('output').value = `${newPass.strongPassword()}`;
+  }
+  else if(choice == "super") {
+    document.getElementById('output').value = `${newPass.superStrongPassword()}`;
+  }
   else console.log("Invalid choice!!");
 }
